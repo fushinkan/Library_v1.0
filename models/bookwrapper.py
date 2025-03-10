@@ -17,3 +17,7 @@ class BookWrapper:
             'year': self.book.year,
             'status': self.book.status
         }
+        
+    def __eq__(self, value) -> bool:
+        """Compares dictionaries"""
+        return self.book.id == value.book.id

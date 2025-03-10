@@ -1,7 +1,6 @@
 #This is the main file of the Library Management console application
 
 from models import Book, BookWrapper, Library
-from transactions import AddBook
 
 def main():
     
@@ -9,10 +8,9 @@ def main():
     print(book)
     dct = BookWrapper(book)
     library = Library()
-    book_n = AddBook(library)
-    book_n.add_books(book)
-    
-    library.display_books()
+    book_n = dct.to_dict()
+    library.add_books(book_n)
+    library.display_books() 
     
 
 if __name__ == "__main__":
