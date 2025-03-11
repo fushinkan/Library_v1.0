@@ -1,4 +1,5 @@
 #This is a book storage
+import json
 from models import BookWrapper
 
 class Library:
@@ -7,18 +8,33 @@ class Library:
         """Initializer"""
         self.storage = []
     
-    def add_books(self, book: BookWrapper) -> None:
+    def add_books(self, dct: BookWrapper, filename='./storage/storage.json') -> None:
         """Adds the books to the storage"""
-        if book not in self.storage:
-            self.storage.append(book)
-        else:
-            print('Book already exists')  
-                
-    def display_books(self) -> None:
-        """Displays books"""
-        if not self.storage:
-            print('Books not found')
+        
+        try:
+            with open(filename, 'r', encoding='utf-8') as file:
+                self.storage = json.load(file)
+        except FileNotFoundError:
+            self.storage = []
             
-        else:
-            for i, dct in enumerate(self.storage, start=1):
-                print(f"{i}. {dct['author']} - {dct['title']}, published in {dct['year']}")
+        book = dct.to_dict()
+        self.storage.append(book)
+        
+        with open(filename, 'w', encoding='utf-8') as file:
+            json.dump(self.storage, file, indent=4)
+    
+    def display_books(self, filename='./storage/storage.json') -> None:
+        """Displays books in the storage"""
+        try: 
+            with open(filename, 'r', encoding='utf-8') as file:
+                storage = json.load(file)
+        except FileNotFoundError:
+            print('File not found. Make sure the file exists')
+            return
+
+        if not storage:
+            print('Books not found')
+            return
+        
+        for i, item in enumerate(storage, start=1):
+            print(f'{i}. {item['author']} - {item['title']}, published in {item['year']}')

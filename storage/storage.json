@@ -1,0 +1,30 @@
+[
+    {
+        "id": "b9093823-b52c-4dde-a479-c5f85cabcb77",
+        "author": "Lev Tolstoi",
+        "title": "War and Peace",
+        "year": 1812,
+        "status": "Available"
+    },
+    {
+        "id": "2a37a68f-b728-4ed4-b637-477c9ae1c92f",
+        "author": "Pushkin",
+        "title": "Captain's daughter",
+        "year": 1836,
+        "status": "Available"
+    },
+    {
+        "id": "1360875c-2a4d-484f-9f8a-ecf7b173da03",
+        "author": "Lev Tolstoi",
+        "title": "War and Peace",
+        "year": 1813,
+        "status": "Available"
+    },
+    {
+        "id": "21ca89ea-f028-4a80-9673-4fd027f4b6ae",
+        "author": "Pushkin",
+        "title": "Captain's daughter",
+        "year": 1836,
+        "status": "Available"
+    }
+]
